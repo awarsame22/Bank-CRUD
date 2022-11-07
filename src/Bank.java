@@ -33,4 +33,20 @@ public class Bank {
             } else if (choice.equalsIgnoreCase("R")) {
                 //print
                 System.out.println(transactions);
+            }else if (choice.equalsIgnoreCase("U")) {
+                //update
+                System.out.println("Enter the id of the transaction you would like to update: ");
+                int id = Integer.parseInt(scan.nextLine());
+                Transaction transactionToUpdate;
+
+                System.out.println("Enter the name of the account holder: ");
+                String newName = scan.nextLine();
+                System.out.println("Enter the description of the transaction: ");
+                String newDescription = scan.nextLine();
+                System.out.println("Enter the price of the transaction: ");
+                double newPrice = Double.parseDouble(scan.nextLine());
+                transactionToUpdate = new Transaction(id, newName, newDescription, newPrice);
+
+                transactions.replace(id, transaction, transactionToUpdate);
+                System.out.println(transactions);
             }
