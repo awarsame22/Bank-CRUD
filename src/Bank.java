@@ -49,4 +49,10 @@ public class Bank {
 
                 transactions.replace(id, transaction, transactionToUpdate);
                 System.out.println(transactions);
+            }else if (choice.equalsIgnoreCase("D")) {
+                //delete
+                System.out.println("Enter the id of the transaction you would like to delete: ");
+                int idToRemove = Integer.parseInt(scan.nextLine());
+                transactions.remove(idToRemove);
+                System.out.println(transactions);
             }
