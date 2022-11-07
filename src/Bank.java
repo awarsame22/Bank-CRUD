@@ -61,4 +61,7 @@ public class Bank {
                 break;
             } else
                 System.out.println("Invalid input, please select an option from the menu.");
-        }
+        }     while(true);
+
+    }
+}
