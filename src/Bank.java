@@ -59,3 +59,6 @@ public class Bank {
                 //save
             } else if (choice.equalsIgnoreCase("Q")) {
                 break;
+            } else
+                System.out.println("Invalid input, please select an option from the menu.");
+        }
