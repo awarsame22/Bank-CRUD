@@ -55,4 +55,7 @@ public class Bank {
                 int idToRemove = Integer.parseInt(scan.nextLine());
                 transactions.remove(idToRemove);
                 System.out.println(transactions);
-            }
+            }else if (choice.equalsIgnoreCase("S")) {
+                //save
+            } else if (choice.equalsIgnoreCase("Q")) {
+                break;
