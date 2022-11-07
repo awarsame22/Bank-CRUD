@@ -30,3 +30,7 @@ public class Bank {
                 transaction = new Transaction(id, name, description, price);
                 transactions.put(id, transaction);
                 System.out.println(transactions);
+            } else if (choice.equalsIgnoreCase("R")) {
+                //print
+                System.out.println(transactions);
+            }
