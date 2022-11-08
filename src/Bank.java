@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 public class Bank {
@@ -5,15 +6,16 @@ public class Bank {
     String choice;
 
     Transaction transaction;
+
     public void createMethod() {
         Scanner scan = new Scanner(System.in);
 
         do {
+            System.out.println("Enter 'L' to load previous transactions");
             System.out.println("Enter 'C' to create a transaction");
             System.out.println("Enter 'R' to read your transactions");
             System.out.println("Enter 'U' to update a transaction");
             System.out.println("Enter 'D' to delete a transaction");
-            System.out.println("Enter 'S' to save your transactions");
             System.out.println("Enter 'Q' to quit");
             choice = scan.nextLine();
 
@@ -33,7 +35,7 @@ public class Bank {
             } else if (choice.equalsIgnoreCase("R")) {
                 //print
                 System.out.println(transactions);
-            }else if (choice.equalsIgnoreCase("U")) {
+            } else if (choice.equalsIgnoreCase("U")) {
                 //update
                 System.out.println("Enter the id of the transaction you would like to update: ");
                 int id = Integer.parseInt(scan.nextLine());
@@ -49,19 +51,27 @@ public class Bank {
 
                 transactions.replace(id, transaction, transactionToUpdate);
                 System.out.println(transactions);
-            }else if (choice.equalsIgnoreCase("D")) {
+            } else if (choice.equalsIgnoreCase("D")) {
                 //delete
                 System.out.println("Enter the id of the transaction you would like to delete: ");
                 int idToRemove = Integer.parseInt(scan.nextLine());
                 transactions.remove(idToRemove);
                 System.out.println(transactions);
-            }else if (choice.equalsIgnoreCase("S")) {
-                //save
-            } else if (choice.equalsIgnoreCase("Q")) {
-                break;
-            } else
-                System.out.println("Invalid input, please select an option from the menu.");
-        }     while(true);
+            } else if (choice.equalsIgnoreCase("L")) {
+            //load data
+                transaction.load();
+        } else if (choice.equalsIgnoreCase("Q")) {
+                System.out.println("Would you like to save your transactions? Type 'yes' or 'no'");
+                String save = scan.nextLine();
+                if (save.equalsIgnoreCase("yes")){
+                    transaction.save();
+                }
+            break;
 
+            }else
+            System.out.println("Invalid input, please select an option from the menu.");
+
+        } while (true);
     }
 }
+
